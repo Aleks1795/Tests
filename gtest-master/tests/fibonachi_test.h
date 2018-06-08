@@ -89,20 +89,16 @@ TEST(group_02, test2)
      dup2(oldstdout,STDOUT);
 
 
-     FILE *t;
-     t = fopen("file.test","r");
+     FILE *t; t = fopen("file.test","r");
      if(t == NULL){
             FAIL();
-            return;
      }
      char *buf = (char*)malloc(sizeof(char)*512);
      int readcount = fread(buf,1,512,t);
 
-     FILE *d;
-     d =fopen("proverka.test","r");
+     FILE *d; d =fopen("proverka.test","r");
      if(d == NULL){
             SUCCEED();
-            return;
      }
      char *buf2 = (char*)malloc(sizeof(char)*512);
      int readcount2 = fread(buf2,1,512,d);
@@ -110,6 +106,4 @@ TEST(group_02, test2)
      fclose(d);
      ASSERT_EQ(readcount,readcount2);
 }
-
-
 #endif // FIBONACHI_H
